@@ -1,0 +1,23 @@
+# Maintainer: Rishi Saha <saintbelow>
+pkgname=neon-tetris
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="A cyberpunk Tetris game in pure C + OpenGL 3.3 with neon glow shaders"
+arch=('x86_64')
+url="https://github.com/saintbelow/TETRIS"
+license=('MIT')
+depends=('glfw' 'glew' 'mesa' 'openal')
+makedepends=('gcc' 'make')
+source=("$pkgname-$pkgver.tar.gz::${url}/archive/v${pkgver}.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+    cd "TETRIS-${pkgver}/tetris"
+    make
+}
+
+package() {
+    cd "TETRIS-${pkgver}/tetris"
+    install -Dm755 neon_tetris "${pkgdir}/usr/bin/neon-tetris"
+    install -Dm644 /dev/null "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

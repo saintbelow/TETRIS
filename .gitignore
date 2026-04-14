@@ -1,0 +1,12 @@
+# Compiled binaries
+*.o
+*.out
+neon_tetris
+tetris/neon_tetris
+
+# Build artifacts
+build/
+*.dSYM/
+
+# OS files
+.DS_Store
